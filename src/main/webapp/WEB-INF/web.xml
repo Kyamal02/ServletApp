@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <listener>
+        <listener-class>ru.itis.loginregistrationapp.config.AppContextListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>authFilter</filter-name>
+        <filter-class>ru.itis.loginregistrationapp.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>authServlet</servlet-name>
+        <servlet-class>ru.itis.loginregistrationapp.servlets.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>authServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationServlet</servlet-name>
+        <servlet-class>ru.itis.loginregistrationapp.servlets.RegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registrationServlet</servlet-name>
+        <url-pattern>/reg</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>profileServlet</servlet-name>
+        <servlet-class>ru.itis.loginregistrationapp.servlets.ProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>profileServlet</servlet-name>
+        <url-pattern>/profile/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>mainServlet</servlet-name>
+        <servlet-class>ru.itis.loginregistrationapp.servlets.MainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mainServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>ru.itis.loginregistrationapp.servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+</web-app>
